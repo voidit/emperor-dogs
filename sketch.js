@@ -16,14 +16,15 @@ function setup() {
         size: random(sizes),
         eyesColor: random(eyeColors),
         bark: random(barks),
-        place: [random(width), random(height)],
+        place: [width/(names.length+1)*(n+1), height/2],
       };
     dogs.push(new Dog(options));
+    dogs[n].sit();
   }
 }
 
 function draw() {
-  for (let i=0; i<dogs.length; i++){
-    dogs[i].sit();
-  }
+  // for (let i=0; i<dogs.length; i++){
+  //   dogs[i].sit();
+  // }
 }
