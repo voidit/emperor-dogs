@@ -10,8 +10,8 @@ class Dog {
     this.bark = params.bark;
     this.place = params.place;
     this.wink = false;
-    this.step = 1;
-    this.jump = 5;
+    this.stepX = 1;
+    this.stepY = 1;
   }
 
   talk() {
@@ -36,30 +36,44 @@ class Dog {
   wonderWalk() {
     let dice = Math.floor(random(8));
 
+    // prevent dogs going over the border
+    if (this.place[0] >= width) {
+      this.stepX = -1;
+    }
+    if (this.place[0] <= 0) {
+      this.stepX = 1;
+    }
+    if (this.place[1] >= height) {
+      this.stepY = -1;
+    }
+    if (this.place[1] <= 0) {
+      this.stepY = 1;
+    }
+
     switch (dice) {
       case 1:
-        this.place[0] += this.step;
+        this.place[0] += this.stepX;
         break;
       case 2:
-        this.place[1] += this.step;
+        this.place[1] += this.stepY;
         break;
       case 3:
-        this.place[0] -= this.step;
+        this.place[0] -= this.stepX;
         break;
       case 4:
-        this.place[1] -= this.step;
+        this.place[1] -= this.stepY;
         break;
       case 5:
-        this.place[0] += this.jump;
+        this.place[0] += this.stepX * 5;
         break;
       case 6:
-        this.place[1] += this.jump;
+        this.place[1] += this.stepY * 5;
         break;
       case 7:
-        this.place[0] -= this.jump;
+        this.place[0] -= this.stepX * 5;
         break;
       case 8:
-        this.place[1] -= this.jump;
+        this.place[1] -= this.stepY * 5;
         break;
 
       default:
