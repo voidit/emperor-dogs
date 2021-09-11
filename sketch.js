@@ -12,8 +12,8 @@ let names = ["Fanya", "Bubble", "Zak", "Buddy", "Mops", "Lala", "Rafael", "Mozar
 
 function setup() {
   createCanvas(720, 480);
-  let stepH = width / (names.length+2);
-  let stepV = height / (names.length+2);
+  let stepH = width / (names.length + 2);
+  let stepV = height / (names.length + 2);
 
   for (let n = 0; n < names.length; n++) {
     let options = {
@@ -22,7 +22,7 @@ function setup() {
       size: random(sizes),
       eyesColor: random(eyeColors),
       bark: random(barks),
-      place: [stepH * (n+1), stepV * (n+1)],
+      place: [stepH * (n + 1), stepV * (n + 1)],
     };
     dogs.push(new Dog(options));
     dogs[n].sit();
@@ -31,7 +31,13 @@ function setup() {
 
 function draw() {
   background('#fff');
-  for (let i=0; i<dogs.length; i++){
+//   for (let i = 0; i < dogs.length; i++) {
+//     dogs[i].sit();
+//   }
+// }
+
+// function keyPressed() {
+  for (let i = 0; i < dogs.length; i++) {
     dogs[i].wonderWalk();
   }
 }
