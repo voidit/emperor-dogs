@@ -22,7 +22,7 @@ function setup() {
       size: random(sizes),
       eyesColor: random(eyeColors),
       bark: random(barks),
-      place: [stepH * (n+1), stepV * (n+1)],
+      place: [stepH * (n+1), 0],
     };
     dogs.push(new Dog(options));
     dogs[n].sit();
@@ -30,7 +30,8 @@ function setup() {
 }
 
 function draw() {
-  // for (let i=0; i<dogs.length; i++){
-  //   dogs[i].sit();
-  // }
+  background('#fff');
+  for (let i=0; i<dogs.length; i++){
+    dogs[i].wonderWalk();
+  }
 }
