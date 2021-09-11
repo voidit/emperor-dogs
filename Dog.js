@@ -21,7 +21,7 @@ class Dog {
   }
 
   sit() {
-    if ((mouseX - this.size[0]) >= this.place[0]) {
+    if ((mouseX - this.size[0]) >= this.place[0] && (mouseY - this.size[1]) >= this.place[1]) {
       this.wink = true;
       this.talk();
     } else {
