@@ -15,7 +15,9 @@ class Dog {
   }
 
   talk() {
-    print(`${this.name} (${this.attitude}ly): ${this.bark}`);
+    // print(`${this.name} (${this.attitude}ly): ${this.bark}`);
+    // display talk text next to the dog
+    text(`${this.name} (${this.attitude}ly): ${this.bark}`, this.place[0], this.place[1]);
   }
 
   sit() {
