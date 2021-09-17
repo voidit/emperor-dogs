@@ -60,16 +60,16 @@ class Dog {
 
     switch (dice) {
       case 1:
-        this.boundaries.x += this.stepX;
+        this.boundaries.x += this.stepX * this.acceleration;
         break;
       case 2:
-        this.boundaries.y += this.stepY;
+        this.boundaries.y += this.stepY * this.acceleration;
         break;
       case 3:
-        this.boundaries.x -= this.stepX;
+        this.boundaries.x -= this.stepX * this.acceleration;
         break;
       case 4:
-        this.boundaries.y -= this.stepY;
+        this.boundaries.y -= this.stepY * this.acceleration;
         break;
       case 5:
         this.boundaries.x += this.stepX * this.acceleration; // bigger step
