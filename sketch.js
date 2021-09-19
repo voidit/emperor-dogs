@@ -1,13 +1,13 @@
 "use strict";
 let dogs = [];
-let names = ["Fanya", "Bubble", "Zak", "Buddy", "Mops", "Lala", "Rafael", "Mozart"],
+let names = ["snoopy", "Bubble", "Zak", "Buddy", "Mops", "Lala", "Rafael", "Mozart"],
   attitudes = ["easygoing", "friendly", "complicated", "smily", "dramatic"],
   sizes = [
     [10, 10],
     [20, 20],
     [30, 30]
   ],
-  eyeColors = ["magenta", "green", "magenta", "orange", "blue", "brown"],
+  eyeColors = ["magenta", "green", "purple", "orange", "blue", "brown"],
   barks = ["Rhoof!", "Tiaf-tiaf!", "Grrrrr!", "Bark!", "Sniff-snoof!", "Oh-la-la!"];
 
 function setup() {
