@@ -21,9 +21,9 @@ class Dog {
   }
 
   talk() {
-    // print(`${this.name} (${this.attitude}ly): ${this.bark}`);
+    // print(`${this.name} (${this.bark}): ${this.attitude}ly`);
     // display talk text next to the dog
-    text(`${this.name} (${this.attitude}ly): ${this.bark}`, this.boundaries.x, this.boundaries.h);
+    text(`${this.name} (${this.bark}): ${this.attitude}ly`, this.boundaries.x, this.boundaries.h);
   }
 
   sit() {
