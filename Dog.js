@@ -9,10 +9,9 @@ class Dog {
     this.eyeColor = random(["magenta", "green", "purple", "red", "yellow", "orange", "blue", "brown"]); // params.eyeColor;
     this.bark = params.bark;
     this.wink = false;
-    this.speedX = Math.floor(random(3)) + 1
-    this.speedY = Math.floor(random(3)) + 1
-    this.stepX = this.speedX;
-    this.stepY = this.speedY;
+    this.speed = createVector(1, 3.3);
+    this.step = createVector(2, 5);
+    this.place = createVector(params.place[0], params.place[1]);
     this.boundaries = {
       x: params.place[0],
       y: params.place[1],
@@ -24,16 +23,16 @@ class Dog {
   talk() {
     // print(`${this.name} (${this.bark}): ${this.attitude}ly`);
     // display talk text next to the dog
-    text(`${this.name} (${this.bark}): ${this.attitude}ly`, this.boundaries.x, this.boundaries.h);
+    text(`${this.name} (${this.bark}): ${this.attitude}, ${this.boundaries.x}, ${this.boundaries.h}`);
   }
 
   sit() {
-    if (mouseX >= this.boundaries.x && mouseX <= this.boundaries.w && mouseY >= this.boundaries.y && mouseY <= this.boundaries.h) {
-      this.wink = true;
-      this.talk();
-    } else {
-      this.wink = false;
-    }
+    // if (mouseX >= this.boundaries.x && mouseX <= this.boundaries.w && mouseY >= this.boundaries.y && mouseY <= this.boundaries.h) {
+    //   this.wink = true;
+    //   this.talk();
+    // } else {
+    //   this.wink = false;
+    // }
 
     fill(color(this.eyeColor));
     noStroke();
@@ -42,49 +41,53 @@ class Dog {
     ellipse(this.boundaries.x + this.size[0], this.boundaries.y, this.size[0], this.size[1]);
   }
 
-  wonderWalk() {
-    let dice = Math.floor(random(8));
+  wonderWalk(dice) {
+    let revertX = createVector(-1, 1);
+    let revertY = createVector(1, -1);
 
-    // prevent dogs going over the border
-    if (this.boundaries.w >= width) {
-      this.stepX = -1;
+    // prevent dogs going over the border horizontally
+    if (this.boundaries.w >= width || this.boundaries.x <= 0) {
+      this.step = this.step.mult(revertX);
     }
-    if (this.boundaries.x <= 0) {
-      this.stepX = 1;
-    }
-    if (this.boundaries.h >= height) {
-      this.stepY = -1;
-    }
-    if (this.boundaries.y <= 0) {
-      this.stepY = 1;
+    // prevent dogs going over the border vertically
+    if (this.boundaries.h >= height || this.boundaries.y <= 0) {
+      this.step = this.step.mult(revertY);
     }
 
     switch (dice) {
       case 1:
-        this.boundaries.x += this.stepX * this.speedX;
+        this.boundaries.x = this.place.add(this.step).x;
         break;
       case 2:
-        this.boundaries.y += this.stepY * this.speedY;
+        this.boundaries.y = this.place.add(this.step).y;
         break;
       case 3:
-        this.boundaries.x -= this.stepX * this.speedX;
+        this.boundaries.x = this.place.sub(this.step).x;
         break;
       case 4:
-        this.boundaries.y -= this.stepY * this.speedY;
+        this.boundaries.y = this.place.sub(this.step).y;
         break;
       case 5:
-        this.boundaries.x += this.stepX * this.speedX; // bigger step
+        this.step = this.step.add(this.speed);
+        this.boundaries.x = this.place.add(this.step).x;
         break;
       case 6:
-        this.boundaries.y += this.stepY * this.speedY;
+        this.step = this.step.add(this.speed);
+        this.boundaries.y = this.place.add(this.step).y;
         break;
       case 7:
-        this.boundaries.x -= this.stepX * this.speedX;
+        this.step = this.step.sub(this.speed);
+        this.boundaries.x = this.place.sub(this.step).x;
         break;
       case 8:
-        this.boundaries.y -= this.stepY * this.speedY;
+        this.step = this.step.sub(this.speed);
+        this.boundaries.y = this.place.sub(this.step).y;
         break;
-
+      case 9:
+        this.boundaries.x = 0;
+      case 10:
+        this.boundaries.y = 0;
+        break;
       default:
         break;
     }
