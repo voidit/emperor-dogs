@@ -9,9 +9,10 @@ class Dog {
     this.eyeColor = random(["magenta", "green", "purple", "red", "yellow", "orange", "blue", "brown"]); // params.eyeColor;
     this.bark = params.bark;
     this.wink = false;
-    this.acceleration = Math.floor(random(3)) + 1
-    this.stepX = this.acceleration;
-    this.stepY = this.acceleration;
+    this.speedX = Math.floor(random(3)) + 1
+    this.speedY = Math.floor(random(3)) + 1
+    this.stepX = this.speedX;
+    this.stepY = this.speedY;
     this.boundaries = {
       x: params.place[0],
       y: params.place[1],
@@ -60,28 +61,28 @@ class Dog {
 
     switch (dice) {
       case 1:
-        this.boundaries.x += this.stepX * this.acceleration;
+        this.boundaries.x += this.stepX * this.speedX;
         break;
       case 2:
-        this.boundaries.y += this.stepY * this.acceleration;
+        this.boundaries.y += this.stepY * this.speedY;
         break;
       case 3:
-        this.boundaries.x -= this.stepX * this.acceleration;
+        this.boundaries.x -= this.stepX * this.speedX;
         break;
       case 4:
-        this.boundaries.y -= this.stepY * this.acceleration;
+        this.boundaries.y -= this.stepY * this.speedY;
         break;
       case 5:
-        this.boundaries.x += this.stepX * this.acceleration; // bigger step
+        this.boundaries.x += this.stepX * this.speedX; // bigger step
         break;
       case 6:
-        this.boundaries.y += this.stepY * this.acceleration;
+        this.boundaries.y += this.stepY * this.speedY;
         break;
       case 7:
-        this.boundaries.x -= this.stepX * this.acceleration;
+        this.boundaries.x -= this.stepX * this.speedX;
         break;
       case 8:
-        this.boundaries.y -= this.stepY * this.acceleration;
+        this.boundaries.y -= this.stepY * this.speedY;
         break;
 
       default:
