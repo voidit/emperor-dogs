@@ -1,4 +1,5 @@
 "use strict";
+
 let dogs = [];
 let names = ["snoopy", "Bubble", "Zak", "Buddy", "Mops", "Lala", "Rafael", "Mozart"],
   attitudes = ["easygoing", "friendly", "complicated", "smily", "dramatic"],
@@ -10,10 +11,13 @@ let names = ["snoopy", "Bubble", "Zak", "Buddy", "Mops", "Lala", "Rafael", "Moza
   eyeColors = ["magenta", "green", "purple", "orange", "blue", "brown"],
   barks = ["Rhoof!", "Tiaf-tiaf!", "Grrrrr!", "Bark!", "Sniff-snoof!", "Oh-la-la!"];
 
+let dice = 0;
+
 function setup() {
   createCanvas(720, 480);
   let stepH = width / (names.length + 2);
   let stepV = height / (names.length + 2);
+  dice = Math.floor(random(10));
 
   for (let n = 0; n < names.length; n++) {
     let options = {
@@ -38,6 +42,9 @@ function draw() {
 
 // function keyPressed() {
   for (let i = 0; i < dogs.length; i++) {
-    dogs[i].wonderWalk();
+    if (keyIsPressed === true) {
+      dice = Math.floor(random(10)); // reset dice
+    }
+    dogs[i].wonderWalk(dice);
   }
 }
