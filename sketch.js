@@ -44,6 +44,7 @@ function draw() {
   for (let i = 0; i < dogs.length; i++) {
     if (keyIsPressed === true) {
       dice = Math.floor(random(10)); // reset dice
+      dogs[i].reset();
     }
     dogs[i].wonderWalk(dice);
   }

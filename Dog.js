@@ -9,7 +9,7 @@ class Dog {
     this.eyeColor = random(["magenta", "green", "purple", "red", "yellow", "orange", "blue", "brown"]); // params.eyeColor;
     this.bark = params.bark;
     this.wink = false;
-    this.speed = createVector(1, 3.3);
+    this.speed = createVector(0.5, 0.3);
     this.step = createVector(2, 5);
     this.place = createVector(params.place[0], params.place[1]);
     this.boundaries = {
@@ -17,6 +17,18 @@ class Dog {
       y: params.place[1],
       w: params.place[0] + this.size[0] * 2,
       h: params.place[1] + this.size[1],
+    }
+  }
+
+  reset() {
+    this.place = createVector(random(width), random(height));
+    this.speed = createVector(random(1), random(1));
+    this.step = createVector(random(3), random(3));
+    this.boundaries = {
+      x: this.place[0],
+      y: this.place[1],
+      w: this.place[0] + this.size[0] * 2,
+      h: this.place[1] + this.size[1],
     }
   }
 
@@ -46,11 +58,11 @@ class Dog {
     let revertY = createVector(1, -1);
 
     // prevent dogs going over the border horizontally
-    if (this.boundaries.w >= width || this.boundaries.x <= 0) {
+    if (this.boundaries.w > width || this.boundaries.x < 0) {
       this.step = this.step.mult(revertX);
     }
     // prevent dogs going over the border vertically
-    if (this.boundaries.h >= height || this.boundaries.y <= 0) {
+    if (this.boundaries.h > height || this.boundaries.y < 0) {
       this.step = this.step.mult(revertY);
     }
 
