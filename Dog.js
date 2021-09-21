@@ -59,11 +59,11 @@ class Dog {
 
     // prevent dogs going over the border horizontally
     if (this.boundaries.w > width || this.boundaries.x < 0) {
-      this.step = this.step.mult(revertX);
+      this.step.mult(revertX);
     }
     // prevent dogs going over the border vertically
     if (this.boundaries.h > height || this.boundaries.y < 0) {
-      this.step = this.step.mult(revertY);
+      this.step.mult(revertY);
     }
 
     switch (dice) {
@@ -80,25 +80,25 @@ class Dog {
         this.boundaries.y = this.place.sub(this.step).y;
         break;
       case 5:
-        this.step = this.step.add(this.speed);
+        this.step.add(this.speed);
         this.boundaries.x = this.place.add(this.step).x;
         break;
       case 6:
-        this.step = this.step.add(this.speed);
+        this.step.add(this.speed);
         this.boundaries.y = this.place.add(this.step).y;
         break;
       case 7:
-        this.step = this.step.sub(this.speed);
+        this.step.sub(this.speed);
         this.boundaries.x = this.place.sub(this.step).x;
         break;
       case 8:
-        this.step = this.step.sub(this.speed);
+        this.step.sub(this.speed);
         this.boundaries.y = this.place.sub(this.step).y;
         break;
       case 9:
-        this.boundaries.x = 0;
+        this.boundaries.x = this.size[0];
       case 10:
-        this.boundaries.y = 0;
+        this.boundaries.y = this.size[1];
         break;
       default:
         break;
