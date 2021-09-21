@@ -6,7 +6,7 @@ class Dog {
     this.name = params.name;
     this.attitude = params.attitude;
     this.size = params.size;
-    this.eyeColor = random(["magenta", "green", "purple", "red", "yellow", "orange", "blue", "brown"]); // params.eyeColor;
+    this.eyeColor = random(["magenta", "green", "lavender", "red", "yellow", "black", "blue", "brown"]); // params.eyeColor;
     this.bark = params.bark;
     this.wink = false;
     this.acceleration = Math.floor(random(3)) + 1
