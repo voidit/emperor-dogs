@@ -6,7 +6,7 @@ class Dog {
     this.name = params.name;
     this.attitude = params.attitude;
     this.size = params.size;
-    this.eyeColor = random(["magenta", "green", "lavender", "red", "yellow", "black", "blue", "brown"]); // params.eyeColor;
+    this.eyeColor = random(["magenta", "green", "lavender", "red", "yellow", "black", "blue", "brown","aqua"]); // params.eyeColor;
     this.bark = params.bark;
     this.wink = false;
     this.speed = createVector(0.5, 0.3);
