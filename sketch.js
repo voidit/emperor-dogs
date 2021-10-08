@@ -1,7 +1,7 @@
 "use strict";
 
 let dogs = [];
-let names = ["snoopy", "Bubble", "Zak", "Buddy", "Mops", "Lala", "Rafael", "Mozart"],
+let names = ["sneha", "Bharti", "Zain", "Buddha", "Manish", "Laxmi", "Rachel", "Monish"],
   attitudes = ["easygoing", "friendly", "complicated", "smily", "dramatic"],
   sizes = [
     [10, 10],
@@ -9,7 +9,7 @@ let names = ["snoopy", "Bubble", "Zak", "Buddy", "Mops", "Lala", "Rafael", "Moza
     [30, 30]
   ],
   eyeColors = ["magenta", "green", "purple", "orange", "blue", "brown"],
-  barks = ["Rhoof!", "Tiaf-tiaf!", "Grrrrr!", "Bark!", "Sniff-snoof!", "Oh-la-la!"];
+  barks = ["hi", "namste", "ciao", "hoa", "satsriyakal", "salam"];
 
 let dice = 0;
 
