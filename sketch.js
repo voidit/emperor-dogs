@@ -34,7 +34,7 @@ function setup() {
 }
 
 function draw() {
-  background('#fff');
+  background('#fae');
 //   for (let i = 0; i < dogs.length; i++) {
 //     dogs[i].sit();
 //   }
