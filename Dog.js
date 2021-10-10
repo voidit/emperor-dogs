@@ -60,25 +60,25 @@ class Dog {
 
     switch (dice) {
       case 1:
-        this.boundaries.x += this.stepX;
+        this.boundaries.x -= this.stepX;
         break;
       case 2:
         this.boundaries.y += this.stepY;
         break;
       case 3:
-        this.boundaries.x -= this.stepX;
+        this.boundaries.x += this.stepX;
         break;
       case 4:
-        this.boundaries.y -= this.stepY;
+        this.boundaries.y == this.stepY;
         break;
       case 5:
-        this.boundaries.x += this.stepX * this.acceleration; // bigger step
+        this.boundaries.x -= this.stepX * this.acceleration; // bigger step
         break;
       case 6:
         this.boundaries.y += this.stepY * this.acceleration;
         break;
       case 7:
-        this.boundaries.x -= this.stepX * this.acceleration;
+        this.boundaries.x += this.stepX * this.acceleration;
         break;
       case 8:
         this.boundaries.y -= this.stepY * this.acceleration;
@@ -89,7 +89,7 @@ class Dog {
     }
 
     // update boundaries
-    this.boundaries.w = this.boundaries.x + this.size[0] * 2;
+    this.boundaries.w = this.boundaries.x + this.size[0] * 3;
     this.boundaries.h = this.boundaries.y + this.size[1];
 
     this.sit();
