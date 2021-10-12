@@ -4,9 +4,11 @@ class Dog {
   // takes parameters {name, attitude, size, eyeColor, bark, place}
   constructor(params) {
     this.name = params.name;
+    this.picture = params.picture;
+    this.img = null;
     this.attitude = params.attitude;
     this.size = params.size;
-    this.eyeColor = random(["magenta", "green", "lavender", "red", "yellow", "black", "blue", "brown","aqua"]); // params.eyeColor;
+    this.eyeColor = random(["magenta", "green", "lavender", "red", "yellow", "black", "blue", "brown", "aqua"]); // params.eyeColor;
     this.bark = params.bark;
     this.wink = false;
     this.speed = createVector(0.5, 0.3);
@@ -18,6 +20,14 @@ class Dog {
       w: params.place[0] + this.size[0] * 2,
       h: params.place[1] + this.size[1],
     }
+  }
+
+  showPicture() {
+    // console.log(this.picture);
+    this.img = loadImage(this.picture);
+    // loadImage(this.picture, img => {
+    //   image(img, random(width), random(height));
+    // });
   }
 
   reset() {
@@ -46,11 +56,16 @@ class Dog {
     //   this.wink = false;
     // }
 
-    fill(color(this.eyeColor));
-    noStroke();
-    ellipse(this.boundaries.x, this.boundaries.y, this.size[0], this.size[1]);
-    if (this.wink === true) fill(color('black'));
-    ellipse(this.boundaries.x + this.size[0], this.boundaries.y, this.size[0], this.size[1]);
+    if (!this.img || 1==1) {
+      fill(color(this.eyeColor));
+      noStroke();
+      ellipse(this.boundaries.x, this.boundaries.y, this.size[0], this.size[1]);
+      // if (this.wink === true) fill(color('black'));
+      // ellipse(this.boundaries.x + this.size[0], this.boundaries.y, this.size[0], this.size[1]);
+      // this.showPicture();
+    } else {
+      image(this.img, this.boundaries.x, this.boundaries.y, this.size[0], this.size[1]);
+    }
   }
 
   wonderWalk(dice) {
